@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота 1. Варіант 3
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-title>
+      Горобчук Марія КН-31
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Горобчук Марія КН-31</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-card-title>Завдання 3</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="p_background">Згенерувати матрицю
+        розміром NxN. Знайти
+        добуток усіх парних
+        чисел. Парні числа
+        позначити голубим.</p>
+
+    </ion-card-content>
+
+    <ion-item>
+      <ion-label position = "floating"> N </ion-label>
+      <ion-input type="number" value="1" #input> </ion-input>
+    </ion-item>
+
+
+<ion-button expand="block" (click) = "matrix(input.value)">Сформувати матрицю</ion-button>
+<ion-item>
+
+  <ion-grid>
+    <ion-row *ngFor="let row of myMatrix" >
+      <ion-col *ngFor="let num of row" [ngStyle]="{backgroundColor: getColor(num)}">{{num}}</ion-col>
+    </ion-row>
+  </ion-grid> 
+
+  <ion-content *ngIf="matrix.length > 0">
+    <p *ngIf="evenProduct">Добуток усіх парних чисел в матриці: {{evenProduct}}</p>
+    <p *ngIf="!evenProduct">У матриці немає парних чисел</p>
+  </ion-content>
+
+</ion-item>
+  </ion-card>
+</ion-content>
