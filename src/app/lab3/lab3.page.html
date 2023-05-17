@@ -27,11 +27,30 @@
       <b>Download file</b>
     </ion-button>
   </ion-item>
-  <ion-list>
-    <ion-item 
-      *ngFor="let any of data">
-    </ion-item>
-  </ion-list>
 
 
+
+  <ion-item>
+    <ion-label>
+      <ion-input placeholder="Enter author's name" [(ngModel)]="searchedAuthor"></ion-input>
+    </ion-label>
+
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Author</ion-col>
+      <ion-col>Title</ion-col>
+      <ion-col>Newspaper</ion-col>
+      <ion-col>Issue Number</ion-col>
+      <ion-col>Page Number</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let article of data" [ngStyle]="{'color': isSearchedAuthor(article.author) ? 'blue' : 'black'}">
+      <ion-col>{{article.author}}</ion-col>
+      <ion-col>{{article.title}}</ion-col>
+      <ion-col>{{article.newspaper}}</ion-col>
+      <ion-col>{{article.issueNumber}}</ion-col>
+      <ion-col>{{article.pageNumber}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

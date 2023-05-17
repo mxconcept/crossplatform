@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
+interface Article {
+  author: string;
+  title: string;
+  newspaper: string;
+  issueNumber: number;
+  pageNumber: number;
+}
+
 @Component({
   selector: 'app-lab3',
   templateUrl: './lab3.page.html',
   styleUrls: ['./lab3.page.scss'],
 })
 export class Lab3Page implements OnInit {
-  data: any = [];
-  data_users: any = [];
-  showDetails: boolean[] = new Array(1000).fill(false);
-  dataUrl = 'https://api.jsonbin.io/v3/b/646409eab89b1e22999f23dc';
+  data: Article[] = [];
+  searchedAuthor: string = '';
+  dataUrl = 'https://api.jsonbin.io/v3/b/64653c478e4aa6225e9efa1f';
   loading: any;
-  max: number = 0;
-  min: number = 100;
 
   constructor(public loadingController: LoadingController) {}
 
@@ -27,29 +32,24 @@ export class Lab3Page implements OnInit {
     fetch(this.dataUrl)
       .then((res) => res.json())
       .then((json) => {
-        this.data = json;
-        this.data = this.data.record;
-        let i = 0;
-        console.log(this.data[i]);
-        while (this.data[i] != undefined) {
-          this.data_users.push(this.data[i][0]);
-          i++;
-        }
-        // this.getMaxAge();
-        // this.getMinAge();
+        this.data = json.record.articles;
+        this.loading.dismiss();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
         this.loading.dismiss();
       });
   }
 
-  ngOnInit() {
-
+  searchAuthor(author: string) {
+    this.searchedAuthor = author;
   }
-}
 
-interface Articles {
-  author : string,
-  title : string,
-  newspaper : string,
-  issueNumber : number
-  pageNumber : number
+  isSearchedAuthor(author: string) {
+    return this.searchedAuthor === author;
+  }
+
+  ngOnInit() {
+    this.download();
+  }
 }
