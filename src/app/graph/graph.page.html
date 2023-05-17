@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота 2. Варіант 3
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Горобчук Марія КН-31
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+        <ion-card-content>
+      <ion-text>Створити додаток для табулювання і виведення на екран значення
+        функції, також побудувати графік функції:</ion-text>
+      <ion-item>
+        <ion-label position="floating">Xn</ion-label>
+        <ion-input type="number" id="xn" value="-1.7" #Inputxn></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Xk</ion-label>
+        <ion-input type="number" id="xk" value="45.3" #Inputxk></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">a</ion-label>
+        <ion-input type="number" id="a" value="0.3" #Inputa></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">h</ion-label>
+        <ion-input type="number" id="h" value="0.3" #Inputh></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="calculate(Inputxn.value, Inputxk.value, Inputh.value, Inputa.value)" >
+ 
+        Розрахунок
+      </ion-button>
+      <div style="width: 100%; height: 400px; margin: auto;">
+        <canvas #chart1Canvas></canvas>
+      </div>
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let item of result1">{{ item }}</ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <div style="width: 100%; height: 400px; margin: auto;">
+        <canvas #chart2Canvas></canvas>
+      </div>
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let item of result2">{{ item }}</ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <div style="width: 100%; height: 400px; margin: auto;">
+        <canvas #chart3Canvas></canvas>
+      </div>
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let item of result3">{{ item }}</ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
