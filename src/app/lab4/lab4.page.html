@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота 4. Варіант 3
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Горобчук Марія КН-31
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card-content>
+    <ion-text style="font-size: medium;">Завдання 1. Скласти програму з абстрактним батьківським класом і двома
+      об'єктами – нащадками. Батьківський клас - Населений пункт
+      (поле назва). Нащадки - Село (поле Кількість
+      будинків-h, кількість
+      мешканців в домі,
+      площина села)
+      Місто (поле кількість
+      населення- h,
+      площина міста). Методи - Щільність
+      населення
+      Реалізувати циклічне виведення параметрів об'єктів, використовуючи 
+      поліморфний контейнер -
+       масив об'єктів базового класу (кількість об'єктів> = 5)
+      <br>Завдання 2. Виконати обрахунки - Знайти значення найменшої щільності населення. </ion-text>
+  </ion-card-content>
+  <ion-card *ngFor="let place of populatedPlaces">
+    <ion-card-header>
+      <ion-card-title>{{ place.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Населення: {{ place.getPopulation() }}<br>
+      Площа: {{ place.getArea() }}
+      <br>
+      Щільність населення: {{ place.getPopulationDensity() }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Мінімальна щільність населення</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ getLowestPopulationDensity() }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
