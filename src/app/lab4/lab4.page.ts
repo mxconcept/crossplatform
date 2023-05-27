@@ -8,7 +8,7 @@ abstract class PopulatedPlace {
   abstract getArea(): number;
 }
 
-class Village extends PopulatedPlace {
+export class Village extends PopulatedPlace {
   constructor(name: string, public numberOfHouses: number, public numberOfResidentsPerHouse: number, public area: number) {
     super(name);
   }
