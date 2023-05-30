@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'lab5',
     loadChildren: () => import('./lab5/lab5.module').then( m => m.Lab5PageModule)
+  },
+  {
+    path: 'lab6',
+    loadChildren: () => import('./lab6/lab6.module').then( m => m.Lab6PageModule)
   }
 ];
 @NgModule({

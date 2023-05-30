@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота 6. Варіант 3
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Горобчук Марія КН-31
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card-content>
+    <ion-text style="font-size: medium;">Необхідно додати у розроблений в попередній лабораторній роботі
+      застосунок сторінку для роботи з інтерфейсами. Сторінку викликати у
+      головному меню застосунку.<br>
+      <br>Завдання по оформленню:<br>
+      Перенести шапку застосунку з викликом меню навігації у окремий
+      компонент. <br><br>Завдання по роботі з інтерфейсами:<br>
+      1. Розробити ієрархію класів відповідно до варіанту завдання(у
+      запропоновану у варіанті ієрархію класів можна додавати додаткові
+      класи або інтерфейси). Деякі з класів можуть бути абстрактними.
+      <br>2. Реалізувати для ієрархії механізм
+      інтерфейсів, при цьому один з класів повинен реалізовувати як мінімум
+      два інтерфейси.
+      <br> 3. Кожен клас з ієрархії класів повинен мати не менше двох методів.
+      <br> 4. Розроблена ієрархія повинна відповідати основним принципам SOLID та патерну High Cohesion + Low Coupling<br><br> За варіантом 3, має бути розроблена ієрархія для таких класів: <br>Робочий, кадри, інженер, адміністрація</ion-text>
+  </ion-card-content>
+
+  <ion-content>
+
+    <ion-item>
+      <ion-label>Worker Actions</ion-label>
+      <ion-button (click)="worker.work()">Work</ion-button>
+      <ion-button (click)="worker.takeBreak()">Take Break</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Human Resources Actions</ion-label>
+      <ion-button (click)="hr.work()">Work</ion-button>
+      <ion-button (click)="hr.takeBreak()">Take Break</ion-button>
+      <ion-button (click)="hr.manageEmployees()">Manage Employees</ion-button>
+      <ion-button (click)="hr.assignTasks()">Assign Tasks</ion-button>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Engineer Actions</ion-label>
+      <ion-button (click)="engineer.work()">Work</ion-button>
+      <ion-button (click)="engineer.takeBreak()">Take Break</ion-button>
+      <ion-button (click)="engineer.fixProblems()">Fix Problems</ion-button>
+      <ion-button (click)="engineer.planSolutions()">Plan Solutions</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Administration Actions</ion-label>
+      <ion-button (click)="administration.work()">Work</ion-button>
+      <ion-button (click)="administration.takeBreak()">Take Break</ion-button>
+      <ion-button (click)="administration.manageEmployees()">Manage Employees</ion-button>
+      <ion-button (click)="administration.assignTasks()">Assign Tasks</ion-button>
+    </ion-item>
+  </ion-content>
+  
+  
+</ion-content>
