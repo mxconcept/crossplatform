@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'lab7',
     loadChildren: () => import('./lab7/lab7.module').then( m => m.Lab7PageModule)
+  },
+  {
+    path: 'lab8',
+    loadChildren: () => import('./lab8/lab8.module').then( m => m.Lab8PageModule)
   }
 ];
 @NgModule({

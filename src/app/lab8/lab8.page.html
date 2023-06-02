@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Лабораторна робота 8. Варіант 3
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Горобчук Марія КН-31
+    </ion-title>
+  </ion-toolbar>
+  
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Лабораторні роботи</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card-content>
+    <ion-text style="font-size: medium;">
+     Завдання по роботі з динамічними реактивними формами:
+  <br>1.   Розробити компонент який буде вміщувати динамічну реактивну форму відповідно до варіанту.
+  <br>2.   Передбачити у формі можливість додавання та видалення певних полів під час виконання.
+  <br>3.   Провести валідування ведених у форму значень, як за допомогою списку статичних методів класу Validators.
+  <br>4.   Створити сервіси для більш точного валідування ведених даних, кількість сервісів не менше двох.
+  <br>5.   Створити модульні тести для перевірки сервісів та функцій для валідування. це все писати на ts, ionic angular
+  <br> За моїм варіантом:    <br> Перелік кафедр:
+  • Назва кафедри.
+  • ПІБ завідувача кафедри.
+  • Кількість викладачів.
+  
+  • Адреса.
+  <br>Інформація, яка додається динамічно:
+  • Список викладачів кафедри
+
+    </ion-text>
+  </ion-card-content>
+  <ion-content>
+    <app-forms>
+      <form [formGroup]="dynamicForm" (ngSubmit)="saveForm()">
+        <ion-list formArrayName="fields">
+          <ion-item *ngFor="let field of fields.controls; let i = index">
+            <ion-label>Поле {{ i + 1 }}</ion-label>
+            <ion-input [formControlName]="i"></ion-input>
+            <ion-icon name="close" slot="end" (click)="removeField(i)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      
+        <ion-text>
+          <ion-button expand="block" (click)="addField()">Додати поле</ion-button>
+        </ion-text>
+      
+        <ion-text>
+          <ion-button expand="block" type="submit" [disabled]="dynamicForm.invalid">Зберегти</ion-button>
+        </ion-text>
+      </form>
+    </app-forms>
+  </ion-content>
+  </ion-content>
